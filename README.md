@@ -1,5 +1,4 @@
-# netzer
+# Netzer
 
 Project netzer: 
 a Network Analyzer Tool
-# Netzer
