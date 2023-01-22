@@ -1,7 +1,7 @@
 import nmap
 import socket
 from tabulate import tabulate
-from colours import Colors
+from core.colours import Colors
 
 
 def scan_network(ip_range):

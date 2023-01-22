@@ -3,8 +3,7 @@ import urllib.request
 import urllib.error
 import psutil
 from tabulate import tabulate
-from colours import Colors
-import os
+
 
 
 class INFO:

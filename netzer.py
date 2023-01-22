@@ -1,8 +1,8 @@
-from info import INFO
-from colours import Colors
+from core.colours import Colors
+from core.info import INFO
 import time
-import hostdiscovery
-import random
+from core.hostdiscovery import scan_network
+from core.hostdiscovery import network_id
 
 def banner():
         print(f''' 
@@ -53,11 +53,11 @@ if __name__ == "__main__":
 
     # Specify the target IP address
     base_ip = INFO.get_address_by_interface(interface_with_internet)
-    network_address = str(hostdiscovery.network_id(base_ip))
+    network_address = str(network_id(base_ip))
 
     # Try all IP addresses in the network
     network_address += '/24'
 
-    print(hostdiscovery.scan_network(network_address))
+    print(scan_network(network_address))
 
     print(f'Total running Time: {round(time.time()-start_time,3)}sec')
