@@ -1,46 +1,63 @@
+from info import INFO
+from colours import Colors
 import time
-import socket
-import urllib.request
-import urllib.error
+import hostdiscovery
+import random
+
+def banner():
+        print(f''' 
+{Colors.red} {Colors.bold}
+{Colors.silver}░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+{Colors.silver}░░░{Colors.red}     ,-.              {Colors.silver}░░░
+{Colors.silver}░░░{Colors.red}    / \  `.  __..-,0  {Colors.silver}░░░
+{Colors.silver}░░░{Colors.red}   :   \ --''_..-'.'  {Colors.silver}░░░
+{Colors.silver}░░░{Colors.red}   |    . .-' `. '.   {Colors.silver}░░░
+{Colors.silver}░░░{Colors.red}   :     .     .`.'   {Colors.silver}░░░
+{Colors.silver}░░░{Colors.red}    \     `.  /  ..   {Colors.silver}░░░                                     
+{Colors.silver}░░░{Colors.red}     \      `.   ' .  {Colors.silver}░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+{Colors.silver}░░░{Colors.red}      `,       `.   \ {Colors.end}                                              {Colors.silver}░░░
+{Colors.silver}░░░{Colors.red}     ,|,`.    {Colors.gray}░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  {Colors.silver}░░░
+{Colors.silver}░░░{Colors.red}    '.||,  ``-{Colors.gray}░{Colors.blue}███╗{Colors.gray}░░{Colors.blue}██╗███████╗████████╗███████╗███████╗██████╗{Colors.gray}░░  {Colors.silver}░░░
+{Colors.silver}░░░{Colors.red}     |--|     {Colors.gray}░{Colors.blue}████╗{Colors.gray}░{Colors.blue}██║██╔════╝╚══██╔══╝╚════██║██╔════╝██╔══██╗{Colors.gray}░  {Colors.silver}░░░               
+{Colors.silver}░░░{Colors.red}     |--|     {Colors.gray}░{Colors.blue}██╔██╗██║█████╗{Colors.gray}░░░░░{Colors.blue}██║{Colors.gray}░░░░░{Colors.blue}███╔═╝█████╗{Colors.gray}░░{Colors.blue}██████╔╝{Colors.gray}░  {Colors.silver}░░░   
+{Colors.silver}░░░{Colors.red}     /||\\     {Colors.gray}░{Colors.blue}██║╚████║██╔══╝{Colors.gray}░░░░░{Colors.blue}██║{Colors.gray}░░░{Colors.blue}██╔══╝{Colors.gray}░░{Colors.blue}██╔══╝{Colors.gray}░░{Colors.blue}██╔══██╗{Colors.gray}░  {Colors.silver}░░░
+{Colors.silver}░░░{Colors.red}    /░||░\\    {Colors.gray}░{Colors.blue}██║{Colors.gray}░{Colors.blue}╚███║███████╗{Colors.gray}░░░{Colors.blue}██║{Colors.gray}░░░{Colors.blue}███████╗███████╗██║{Colors.gray}░░{Colors.blue}██║{Colors.gray}░  {Colors.silver}░░░
+{Colors.silver}░░░{Colors.red}   /░░||░░\\   {Colors.gray}░{Colors.blue}╚═╝{Colors.gray}░░{Colors.blue}╚══╝╚══════╝{Colors.gray}░░░{Colors.blue}╚═╝{Colors.gray}░░░{Colors.blue}╚══════╝╚══════╝╚═╝{Colors.gray}░░{Colors.blue}╚═╝{Colors.gray}░  {Colors.silver}░░░
+{Colors.silver}░░░{Colors.red}__/░░░||░░░\\__{Colors.gray}░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  {Colors.silver}░░░
+{Colors.silver}░░░{Colors.red}              {Colors.end}      ver -ve[0.4]        dumb coded by LOKZY        {Colors.silver}░░░
+{Colors.silver}░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+{Colors.end}
+''')
 
 
-class Netzer:
 
-    def __init__(self):
-        for i in range(25):
-            # Print a loading message and the current progress
-            message = "Checking Connection..." + "." * (i % 4)
-            print(f"\r{message}", end="")
-            # Sleep for a short amount of time to create the animation effect
-            time.sleep(0.1)
-            # Print a newline character to move the cursor to the next line
-        print("Done ✅")
-
-    @staticmethod
-    def internet_private():
-        ipaddr = socket.gethostbyname(socket.gethostname())
-        if ipaddr == "127.0.0.1":
-            return False
-        else:
-            return ipaddr
-
-    @staticmethod
-    def internet_public():
-        try:
-            urllib.request.urlopen('http://www.google.com', timeout=1)
-            public_ip = urllib.request.urlopen('https://ident.me').read().decode('utf8')
-            return public_ip
-        except urllib.error.URLError:
-            return False
 
 
 if __name__ == "__main__":
 
-    netzer = Netzer()
-    pvt_check = netzer.internet_private()
-    pub_check = netzer.internet_public()
-    print('Connected to Internet') if pvt_check and pub_check else print('No Internet')
-    time.sleep(0.2)
-    print('Public IPadrress: ', pub_check)
-    time.sleep(0.2)
-    print('Private IPaddress: ', pvt_check)
+    start_time = time.time()
+    banner()
+    print(f'[+] {Colors.bold}{Colors.green}ACTIVE INTERFACES:{Colors.end}')
+    interface_with_internet = INFO.get_interface_name(INFO.get_private_ip())
+    print(f'{INFO.get_network_interfaces()} \n')
+
+    ans = str(input(f"Continue with {Colors.yellow} [-{interface_with_internet}-] {Colors.end}? [y/n]:") or interface_with_internet)
+    if ans.lower() == 'y':
+        print(f'[+] {Colors.bold}{Colors.green}INTERFACE:  {interface_with_internet} {Colors.end}')
+    else:
+        interface_with_internet = input(f"Enter the interface name to use (eg: wlan0): ").strip()
+        if ans in INFO.get_network_interfaces():
+            print(f'[+] {Colors.bold}{Colors.green}INTERFACE:  {interface_with_internet} {Colors.end}')
+        else:
+            print(f'{Colors.bold}{Colors.red}Invalid Interface!')
+
+    # Specify the target IP address
+    base_ip = INFO.get_address_by_interface(interface_with_internet)
+    network_address = str(hostdiscovery.network_id(base_ip))
+
+    # Try all IP addresses in the network
+    network_address += '/24'
+
+    print(hostdiscovery.scan_network(network_address))
+
+    print(f'Total running Time: {round(time.time()-start_time,3)}sec')
