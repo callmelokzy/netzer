@@ -24,7 +24,7 @@ def banner():
 {Colors.silver}░░░{Colors.red}    /░||░\\    {Colors.gray}░{Colors.blue}██║{Colors.gray}░{Colors.blue}╚███║███████╗{Colors.gray}░░░{Colors.blue}██║{Colors.gray}░░░{Colors.blue}███████╗███████╗██║{Colors.gray}░░{Colors.blue}██║{Colors.gray}░  {Colors.silver}░░░
 {Colors.silver}░░░{Colors.red}   /░░||░░\\   {Colors.gray}░{Colors.blue}╚═╝{Colors.gray}░░{Colors.blue}╚══╝╚══════╝{Colors.gray}░░░{Colors.blue}╚═╝{Colors.gray}░░░{Colors.blue}╚══════╝╚══════╝╚═╝{Colors.gray}░░{Colors.blue}╚═╝{Colors.gray}░  {Colors.silver}░░░
 {Colors.silver}░░░{Colors.red}__/░░░||░░░\\__{Colors.gray}░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  {Colors.silver}░░░
-{Colors.silver}░░░{Colors.red}              {Colors.end}      ver -ve[0.4]        dumb coded by LOKZY        {Colors.silver}░░░
+{Colors.silver}░░░{Colors.red}              {Colors.end}      ver -ve[0.4]        dumb coded by LOKZY         {Colors.silver}░░░
 {Colors.silver}░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 {Colors.end}
 ''')
