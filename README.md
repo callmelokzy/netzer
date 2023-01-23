@@ -29,5 +29,6 @@ pip install -r requirements.txt
 ```
 python3 netzer.py
 ```
-![image](https://user-images.githubusercontent.com/56486732/214092341-16c7151e-b985-4846-a513-d29483ee1c51.png)
+![image](https://user-images.githubusercontent.com/56486732/214103273-bcc621c0-8eac-4a7f-a514-01e34fb9ff18.png)
+
 ![image](https://user-images.githubusercontent.com/56486732/214092464-88dca203-8b4f-4170-8b60-a0109270ed36.png)
